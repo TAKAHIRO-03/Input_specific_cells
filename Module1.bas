@@ -1,36 +1,31 @@
 Attribute VB_Name = "Module1"
 Sub gattai()
 
-'author: ¬—Ñ—²O
+'ï¼œã‚·ãƒ¼ãƒˆè¿½åŠ å‡¦ç†ï¼
 
-
-'============================================================================================================================
-
-'ƒƒV[ƒg’Ç‰Áˆ—„
-
-'ƒV[ƒgmmergen‚ğíœ
+'ã‚·ãƒ¼ãƒˆï¼»mergeï¼½ã‚’å‰Šé™¤
     On Error Resume Next
     Application.DisplayAlerts = False
        Worksheets("CSV").delete
     Application.DisplayAlerts = True
     
     
-'ƒV[ƒgmmergen‚ğˆê”Ô‰E‚É’Ç‰Á
+'ã‚·ãƒ¼ãƒˆï¼»mergeï¼½ã‚’ä¸€ç•ªå³ã«è¿½åŠ 
     Worksheets.Add(after:=Worksheets(Worksheets.count)).Name = "CSV"
-'Œ‹‡‚µ‚½‚¢ƒtƒ@ƒCƒ‹‚ª‚ ‚éƒtƒHƒ‹ƒ_‚ÌêŠ cƒhƒ‰ƒCƒu‚È‚ç "C:\test\"
+'çµåˆã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ•ã‚©ãƒ«ãƒ€ã®å ´æ‰€ cãƒ‰ãƒ©ã‚¤ãƒ–ãªã‚‰ "C:\test\"
     If Application.FileDialog(msoFileDialogFolderPicker).Show = True Then
         Range("z2").Value = Application.FileDialog(msoFileDialogFolderPicker).SelectedItems(1)
     End If
     
-     Application.ScreenUpdating = False  '‰æ–Ê‚Ì•`Ê‚ğ—}§‚·‚éiƒ}ƒNƒ‚ÌÀs‘¬“x‚ğ‘‚­‚·‚é‚Ì‚ª–Ú“Ij'
-        Application.EnableEvents = False  'ƒCƒxƒ“ƒg‚Ì”­¶‚ğ—}§‚·‚é'
+     Application.ScreenUpdating = False  'ç”»é¢ã®æå†™ã‚’æŠ‘åˆ¶ã™ã‚‹ï¼ˆãƒã‚¯ãƒ­ã®å®Ÿè¡Œé€Ÿåº¦ã‚’æ—©ãã™ã‚‹ã®ãŒç›®çš„ï¼‰'
+        Application.EnableEvents = False  'ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã‚’æŠ‘åˆ¶ã™ã‚‹'
         
 '============================================================================================================================
    
 
 '============================================================================================================================
 
-'ƒƒtƒ@ƒCƒ‹“Ç‚İ‚İˆ—„
+'ï¼œãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿å‡¦ç†ï¼
 
 Dim Fol As String
 Fol = Range("z2").Value & "\"
@@ -40,14 +35,14 @@ Dim Wb As Workbook
 Dim Ws1 As Worksheet
 Dim Ws2 As Worksheet
 Dim R As Range
-Set R = Worksheets("CSV").Range("A1")  '©‚±‚ê‚ğƒ`ƒFƒbƒNƒV[ƒg‚É‚·‚éf
+Set R = Worksheets("CSV").Range("A1")  'â†ã“ã‚Œã‚’ãƒã‚§ãƒƒã‚¯ã‚·ãƒ¼ãƒˆã«ã™ã‚‹â€™
 Fn = Dir(Fol, vbNormal)
 Do Until Fn = ""
 Set Wb = Workbooks.Open(Fol & Fn)
-'ƒ[ƒNƒV[ƒg1‚ğƒRƒs[‚·‚éê‡‚Í Wb.Worksheets(1)
-'ƒ[ƒNƒV[ƒg2‚ğƒRƒs[‚·‚éê‡‚Í Wb.Worksheets(2)
+'ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆ1ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹å ´åˆã¯ Wb.Worksheets(1)
+'ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆ2ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹å ´åˆã¯ Wb.Worksheets(2)
 Set Ws2 = Wb.Worksheets(1)
-'A‚Ì1s–Ú‚©‚ç8—ñ–Ú‚Ü‚Å‚ğƒRƒs[‚µ‚ÄŒ‹‡‚·‚é
+'Aã®1è¡Œç›®ã‹ã‚‰8åˆ—ç›®ã¾ã§ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦çµåˆã™ã‚‹
 Ws2.Range("A1", Ws2.Cells(Rows.count, 1).End(xlUp)).Resize(, 8).Copy R
 Set R = R.End(xlDown).Offset(1)
 Wb.Close
@@ -59,8 +54,8 @@ Set Ws1 = Nothing: Set Ws2 = Nothing
 Set Wb = Nothing: Set NewFile = Nothing
 
 
- Application.ScreenUpdating = True  '‰æ–Ê‚Ì•`Ê‚ğ—}§‚·‚éiƒ}ƒNƒ‚ÌÀs‘¬“x‚ğ‘‚­‚·‚é‚Ì‚ª–Ú“Ij'
-        Application.EnableEvents = True  'ƒCƒxƒ“ƒg‚Ì”­¶‚ğ—}§‚·‚é'
+ Application.ScreenUpdating = True  'ç”»é¢ã®æå†™ã‚’æŠ‘åˆ¶ã™ã‚‹ï¼ˆãƒã‚¯ãƒ­ã®å®Ÿè¡Œé€Ÿåº¦ã‚’æ—©ãã™ã‚‹ã®ãŒç›®çš„ï¼‰'
+        Application.EnableEvents = True  'ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”Ÿã‚’æŠ‘åˆ¶ã™ã‚‹'
 End Sub
 
 '============================================================================================================================
