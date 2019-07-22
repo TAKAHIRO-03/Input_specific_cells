@@ -5,7 +5,7 @@ Sub move_file()
 Dim fso As FileSystemObject
 Set fso = New FileSystemObject
 
-Call fso.MoveFile("C:\Users\riken\Desktop\ƒ`ƒFƒbƒNƒV[ƒg—p\*", "C:\Users\riken\Desktop\•ï‘•‘ŞƒtƒHƒ‹ƒ_ipastj")
+Call fso.MoveFile("ãƒ‘ã‚¹ã‚’æŒ‡å®š")
 
 Set fso = Nothing
 
